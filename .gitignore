@@ -83,3 +83,4 @@ Test.io/Recordings/
 *.mp4
 /HexaBusParty/Logs
 /HexaBusParty/obj
+HexaBusParty/UserSettings/
