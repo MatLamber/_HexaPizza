@@ -2,6 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Toping
+{
+    Mushrooms,
+    Pepperoni,
+    Pineapple,
+    Sausage,
+    Tomato,
+    
+}
 public class Hexagon : MonoBehaviour
 {
     [Header("Elements")] [SerializeField] private new Renderer renderer;
@@ -9,15 +18,16 @@ public class Hexagon : MonoBehaviour
     public HexStack HexStack { get; private set; }
     [Header("Settings")] 
     [SerializeField] private bool unstackable;
+    [SerializeField] private Toping toping;
     
     
     public bool Unstackable => unstackable;
-    public Color Color
+    public Texture ToppingTexture
     {
-        get => renderer.material.color;
-        set => renderer.material.color = value;
-    }
+        get => renderer.material.mainTexture;
 
+        set => renderer.material.mainTexture = value;
+    }
 
     public void Configure(HexStack hexStack)
     {

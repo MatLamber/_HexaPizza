@@ -39,18 +39,18 @@ public class MergeManager : MonoBehaviour
             yield break;
         List<GridCell> neighborGridCells = GetNeighboursGridCells(gridCell);
         if (neighborGridCells.Count <= 0) yield break;
-        Color gridCellTopHexagonColor = gridCell.Stack.GetTopHexagonColor();
+        Texture gridCellTopToppingTexture = gridCell.Stack.GetTopHexagonColor();
         List<GridCell> similarNeighborGridCells =
-            GetSimilarNeighbourGridCells(gridCellTopHexagonColor, neighborGridCells);
+            GetSimilarNeighbourGridCells(gridCellTopToppingTexture, neighborGridCells);
         List<Hexagon> hexagonsToAdd =
-            GetHexagonsToAdd(gridCellTopHexagonColor, neighborGridCells, similarNeighborGridCells);
+            GetHexagonsToAdd(gridCellTopToppingTexture, neighborGridCells, similarNeighborGridCells);
         RemoveHexagonsFromStacks(similarNeighborGridCells, hexagonsToAdd);
         MoveHexagons(gridCell, hexagonsToAdd);
         yield return new WaitForSeconds(((hexagonsToAdd.Count + 1) * .12f) + .3f);
-        yield return CheckForCompleteStacks(gridCell, gridCellTopHexagonColor);
+        yield return CheckForCompleteStacks(gridCell, gridCellTopToppingTexture);
     }
 
-    IEnumerator CheckForCompleteStacks(GridCell gridCell, Color gridCellTopHexagonColor)
+    IEnumerator CheckForCompleteStacks(GridCell gridCell, Texture gridCellTopHexagonColor)
     {
         if (gridCell.Stack.Hexagons.Count < 10)
             yield break;
@@ -58,7 +58,7 @@ public class MergeManager : MonoBehaviour
         for (int i = gridCell.Stack.Hexagons.Count - 1; i >= 0; i--)
         {
             Hexagon hexagon = gridCell.Stack.Hexagons[i];
-            if (!AreColorsSimilar(gridCellTopHexagonColor, hexagon.Color, 0.1f))
+            if (!AreTexturesSimilar(gridCellTopHexagonColor, hexagon.ToppingTexture))
                 break;
             similarHexaongs.Add(hexagon);
         }
@@ -107,7 +107,7 @@ public class MergeManager : MonoBehaviour
         }
     }
 
-    private List<Hexagon> GetHexagonsToAdd(Color gridCellTopHexagonColor, List<GridCell> neighborGridCells,
+    private List<Hexagon> GetHexagonsToAdd(Texture gridCellTopHexagonColor, List<GridCell> neighborGridCells,
         List<GridCell> similarNeighborGridCells)
     {
         List<Hexagon> hexagonsToAdd = new List<Hexagon>();
@@ -120,7 +120,7 @@ public class MergeManager : MonoBehaviour
                 Hexagon hexagon = neihborCellHexStack.Hexagons[i];
                 if (hexagon.Unstackable)
                     break;
-                if (!AreColorsSimilar(gridCellTopHexagonColor, hexagon.Color, 0.1f))
+                if (!AreTexturesSimilar(gridCellTopHexagonColor, hexagon.ToppingTexture))
                     break;
                 hexagonsToAdd.Add(hexagon);
                 hexagon.SetParent(null);
@@ -131,14 +131,14 @@ public class MergeManager : MonoBehaviour
         return hexagonsToAdd;
     }
 
-    private List<GridCell> GetSimilarNeighbourGridCells(Color gridCellTopHexagonColor, List<GridCell> neighborGridCells)
+    private List<GridCell> GetSimilarNeighbourGridCells(Texture gridCellTopHexagonColor, List<GridCell> neighborGridCells)
     {
         List<GridCell> similarNeighborGridCells = new List<GridCell>();
 
         foreach (GridCell neighborGridCell in neighborGridCells)
         {
-            Color neighborHexagonColor = neighborGridCell.Stack.GetTopHexagonColor();
-            if (AreColorsSimilar(gridCellTopHexagonColor, neighborHexagonColor, 0.1f))
+            Texture neighborHexagonColor = neighborGridCell.Stack.GetTopHexagonColor();
+            if (AreTexturesSimilar(gridCellTopHexagonColor, neighborHexagonColor))
                 similarNeighborGridCells.Add(neighborGridCell);
         }
 
@@ -158,7 +158,6 @@ public class MergeManager : MonoBehaviour
 
         foreach (Collider gridCellCllider in neighborCells)
         {
-            Debug.Log($"{gridCellCllider.name}");
             GridCell neighborCell = gridCellCllider.GetComponentInParent<GridCell>();
             if (!neighborCell.IsOccupied)
                 continue;
@@ -169,13 +168,21 @@ public class MergeManager : MonoBehaviour
 
         return neighborGridCells;
     }
-
-    public bool AreColorsSimilar(Color color1, Color color2, float threshold)
+    public bool AreTexturesSimilar(Texture texture1, Texture texture2)
     {
-        float rDif = Math.Abs(color1.r - color2.r);
-        float gDif = Math.Abs(color1.g - color2.g);
-        float bDif = Math.Abs(color1.b - color2.b);
-        float aDif = Math.Abs(color1.a - color2.a);
-        return rDif <= threshold && gDif <= threshold && bDif <= threshold && aDif <= threshold;
+        // Compara referencias directas (instancias iguales)
+        if (texture1 == texture2)
+            return true;
+
+        // Si alguna textura es nula, no son similares
+        if (texture1 == null || texture2 == null)
+            return false;
+
+        // Compara nombres (si los nombres identifican texturas únicas)
+        if (texture1.name == texture2.name)
+            return true;
+
+        // Si no cumplen las condiciones anteriores, asumimos que no son similares
+        return false;
     }
 }

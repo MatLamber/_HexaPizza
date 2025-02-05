@@ -68,7 +68,7 @@ public class StackController : MonoBehaviour
 
     private void DraggingAboveCell(RaycastHit hit)
     {
-        Debug.Log($"Hit collider {hit.collider.name}");
+
         GridCell gridCell = hit.collider.GetComponentInParent<GridCell>();
         if (gridCell.IsOccupied)
         {

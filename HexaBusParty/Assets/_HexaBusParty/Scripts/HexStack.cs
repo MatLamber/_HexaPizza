@@ -29,9 +29,9 @@ public class HexStack : MonoBehaviour
         }
     }
 
-    public Color GetTopHexagonColor()
+    public Texture GetTopHexagonColor()
     {
-        return Hexagons[^1].Color;
+        return Hexagons[^1].ToppingTexture;
     }
 
     public bool Contains(Hexagon hexagon)

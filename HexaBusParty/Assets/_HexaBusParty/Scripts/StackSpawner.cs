@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class StackSpawner : MonoBehaviour
@@ -16,7 +17,7 @@ public class StackSpawner : MonoBehaviour
     [Header(" Settings ")] 
     [NaughtyAttributes.MinMaxSlider(2, 8)]
     [SerializeField] private Vector2Int minMaxHexCount;
-    [SerializeField] private Color[] colors;
+    [FormerlySerializedAs("colors")] [SerializeField] private Texture[] textures;
     private int stackCounter;
 
 
@@ -50,43 +51,43 @@ public class StackSpawner : MonoBehaviour
         
         int amount = Random.Range(minMaxHexCount.x, minMaxHexCount.y);
         int firstColorHexagonCount = Random.Range(0, amount);
-        Color[] colorArray = GetRandomColors();
+        Texture[] colorArray = GetRandomToppings();
         for (int i = 0; i < amount; i++)
         {
             Vector3 hexagonLocalPos = Vector3.up * (i * .2f);
             Vector3 spawnPosition = hexStack.transform.TransformPoint(hexagonLocalPos);
             Hexagon hexagonInstance = Instantiate(hexagonPrefab, spawnPosition, Quaternion.identity, hexStack.transform);
-            hexagonInstance.Color = i < firstColorHexagonCount ? colorArray[0] : colorArray[1];
+            hexagonInstance.ToppingTexture = i < firstColorHexagonCount ? colorArray[0] : colorArray[1];
             hexagonInstance.Configure(hexStack);
             hexStack.Add(hexagonInstance);
         }
     }
 
 
-    private Color[] GetRandomColors()
+    private Texture[] GetRandomToppings()
     {
-        List<Color> colorsList = new List<Color>();
-        colorsList.AddRange(colors);
+        List<Texture> toppingList = new List<Texture>();
+        toppingList.AddRange(textures);
 
-        if (colorsList.Count < 0)
+        if (toppingList.Count < 0)
         {
             Debug.LogError("No colors in the list");
             return null;
         }
         
-        Color firstColor = colorsList.OrderBy(x => Random.value).First();
-        colorsList.Remove(firstColor);
+        Texture firstTopping = toppingList.OrderBy(x => Random.value).First();
+        toppingList.Remove(firstTopping);
 
-        if (colorsList.Count <= 0)
+        if (toppingList.Count <= 0)
         {
             Debug.LogError("Only one color was found");
             return null;
         }
             
-        Color secondColor= colorsList.OrderBy(x => Random.value).First();
-        colorsList.Remove(firstColor);
+        Texture secondTopping = toppingList.OrderBy(x => Random.value).First();
+        toppingList.Remove(firstTopping);
         
-        return new[] {firstColor, secondColor};
+        return new[] {firstTopping, secondTopping };
     }
     
     private void StackPlacedCallback(GridCell obj)

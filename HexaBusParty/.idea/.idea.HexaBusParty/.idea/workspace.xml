@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="201789e5-2aa9-4580-a831-63b19cbac3df" name="Changes" comment="" />
+    <list default="true" id="201789e5-2aa9-4580-a831-63b19cbac3df" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HexaBusParty/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexaBusParty/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TopDownEngine/ThirdParty/MoreMountains/MMFeedbacks/MMFeedbacksForThirdParty/UIToolkit/FeelUIToolkitPackage.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Materials/Hex.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Materials/Hex.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Prefabs/Hexagon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Prefabs/Hexagon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Scenes/Base.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Scenes/Base.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/GridCell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/GridCell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/HexStack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/HexStack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/Hexagon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/Hexagon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/MergeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/MergeManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/StackController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/StackController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/StackSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/StackSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,8 +45,6 @@
     <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/ad/5f3da708/List`1.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -46,7 +58,8 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;&lt;unknown&gt;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -58,7 +71,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.55f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.55f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath $PROJECT_DIR$ -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -66,7 +79,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.55f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.55f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath $PROJECT_DIR$ -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -115,6 +128,8 @@
       <workItem from="1736855921448" duration="12289000" />
       <workItem from="1736936498254" duration="13952000" />
       <workItem from="1737029327120" duration="10427000" />
+      <workItem from="1738605071989" duration="5432000" />
+      <workItem from="1738688318812" duration="5455000" />
     </task>
     <servers />
   </component>
