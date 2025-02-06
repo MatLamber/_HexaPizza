@@ -13,12 +13,14 @@ public class StackSpawner : MonoBehaviour
     [SerializeField] private Transform stackPositionsParent;
     [SerializeField] private Hexagon hexagonPrefab;
     [SerializeField] private HexStack hexagonStackPrefab;
+    [SerializeField] private Renderer beltRenderer;
 
     [Header(" Settings ")] 
     [NaughtyAttributes.MinMaxSlider(2, 8)]
     [SerializeField] private Vector2Int minMaxHexCount;
     [FormerlySerializedAs("colors")] [SerializeField] private Texture[] textures;
     private int stackCounter;
+    private Vector3 initialStackParentPosition;
 
 
     private void OnEnable()
@@ -35,20 +37,23 @@ public class StackSpawner : MonoBehaviour
 
     private void Start()
     {
+        initialStackParentPosition = stackPositionsParent.position;
         GenerateStacks();
     }
 
     private void GenerateStacks()
     {
+        stackPositionsParent.position = initialStackParentPosition;
         for (int i = 0; i < stackPositionsParent.childCount; i++)
             GenerateStack(stackPositionsParent.GetChild(i));
             
     }
+
     private void GenerateStack(Transform parent)
     {
         HexStack hexStack = Instantiate(hexagonStackPrefab, parent.position, Quaternion.identity, parent);
         hexStack.name = $" Stack {parent.GetSiblingIndex()}";
-        
+
         int amount = Random.Range(minMaxHexCount.x, minMaxHexCount.y);
         int firstColorHexagonCount = Random.Range(0, amount);
         Texture[] colorArray = GetRandomToppings();
@@ -56,13 +61,25 @@ public class StackSpawner : MonoBehaviour
         {
             Vector3 hexagonLocalPos = Vector3.up * (i * .2f);
             Vector3 spawnPosition = hexStack.transform.TransformPoint(hexagonLocalPos);
-            Hexagon hexagonInstance = Instantiate(hexagonPrefab, spawnPosition, Quaternion.identity, hexStack.transform);
+            Hexagon hexagonInstance =
+                Instantiate(hexagonPrefab, spawnPosition, Quaternion.identity, hexStack.transform);
             hexagonInstance.ToppingTexture = i < firstColorHexagonCount ? colorArray[0] : colorArray[1];
+            for (int j = 0; j < textures.Length; j++)
+            {
+                if (textures[j] == hexagonInstance.ToppingTexture)
+                    hexagonInstance.Toping = (Toping) j;
+            }
             hexagonInstance.Configure(hexStack);
             hexStack.Add(hexagonInstance);
         }
-    }
 
+        LeanTween.moveLocalX(stackPositionsParent.gameObject, 0, 1f).setEaseOutSine().setDelay(0.05f);
+
+        Vector2 offset = beltRenderer.material.mainTextureOffset;
+        LeanTween.value(beltRenderer.gameObject, offset.x, offset.x - 1f, 1.03f)
+            .setEaseOutSine()
+            .setOnUpdate((float value) => { beltRenderer.material.mainTextureOffset = new Vector2(value, offset.y); });
+    }
 
     private Texture[] GetRandomToppings()
     {

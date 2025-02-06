@@ -5,19 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="201789e5-2aa9-4580-a831-63b19cbac3df" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HexaBusParty/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexaBusParty/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TopDownEngine/ThirdParty/MoreMountains/MMFeedbacks/MMFeedbacksForThirdParty/UIToolkit/FeelUIToolkitPackage.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Materials/Hex.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Materials/Hex.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Prefabs/Hexagon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Prefabs/Hexagon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Animations/Passenger.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Animations/Passenger.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Scenes/Base.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Scenes/Base.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/GridCell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/GridCell.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/HexStack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/HexStack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/Hexagon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/Hexagon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/MergeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/MergeManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/StackController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/StackController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/StackSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_HexaBusParty/Scripts/StackSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +33,6 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -130,6 +120,9 @@
       <workItem from="1737029327120" duration="10427000" />
       <workItem from="1738605071989" duration="5432000" />
       <workItem from="1738688318812" duration="5455000" />
+      <workItem from="1738784048496" duration="3834000" />
+      <workItem from="1738843450039" duration="11342000" />
+      <workItem from="1738860723983" duration="10282000" />
     </task>
     <servers />
   </component>

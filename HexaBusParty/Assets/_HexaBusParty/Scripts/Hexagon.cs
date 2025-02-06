@@ -4,12 +4,9 @@ using UnityEngine;
 
 public enum Toping
 {
-    Mushrooms,
     Pepperoni,
-    Pineapple,
-    Sausage,
-    Tomato,
-    
+    Veggie,
+    Cheese
 }
 public class Hexagon : MonoBehaviour
 {
@@ -27,6 +24,12 @@ public class Hexagon : MonoBehaviour
         get => renderer.material.mainTexture;
 
         set => renderer.material.mainTexture = value;
+    }
+
+    public Toping Toping
+    {
+        get => toping;
+        set => toping = value;
     }
 
     public void Configure(HexStack hexStack)

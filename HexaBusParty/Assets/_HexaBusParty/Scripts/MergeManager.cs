@@ -66,18 +66,24 @@ public class MergeManager : MonoBehaviour
             yield break;
         int similarHexaongsCount = similarHexaongs.Count;
         float delay = 0;
+        if (CompletedStackGenerator.Instance != null)
+            CompletedStackGenerator.Instance.PickFreeStackPosition(similarHexaongs[0]);
         while (similarHexaongs.Count > 0)
         {
+            if (CompletedStackGenerator.Instance != null)
+                CompletedStackGenerator.Instance.GenerateStack(similarHexaongs[0]);
             similarHexaongs[0].SetParent(null);
             similarHexaongs[0].Vanish(delay);
             delay += .05f;
-            //DestroyImmediate(similarHexaongs[0].gameObject);
             gridCell.Stack.Remove(similarHexaongs[0]);
             similarHexaongs.RemoveAt(0);
         }
         
+        
         updateCells.Add(gridCell);
         yield return new WaitForSeconds((similarHexaongsCount + 1) * .1f + .3f);
+        if (CompletedStackGenerator.Instance != null)
+            CompletedStackGenerator.Instance.ResetFreeStackPositions();
     }
 
     private void MoveHexagons(GridCell gridCell, List<Hexagon> hexagonsToAdd)
@@ -170,19 +176,11 @@ public class MergeManager : MonoBehaviour
     }
     public bool AreTexturesSimilar(Texture texture1, Texture texture2)
     {
-        // Compara referencias directas (instancias iguales)
         if (texture1 == texture2)
             return true;
-
-        // Si alguna textura es nula, no son similares
         if (texture1 == null || texture2 == null)
             return false;
-
-        // Compara nombres (si los nombres identifican texturas únicas)
-        if (texture1.name == texture2.name)
-            return true;
-
-        // Si no cumplen las condiciones anteriores, asumimos que no son similares
-        return false;
+        
+        return texture1.name == texture2.name;
     }
 }
